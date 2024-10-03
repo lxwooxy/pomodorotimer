@@ -1,0 +1,42 @@
+{
+  "name": "pomodoro-timer",
+  "displayName": "Pomodoro Timer",
+  "description": "A simple Pomodoro timer extension",
+  "version": "0.0.1",
+  "publisher": "your-publisher-name",
+  "engines": {
+    "vscode": "^1.60.0"
+  },
+  "activationEvents": [
+    "onCommand:pomodoro.startTimer",
+    "onCommand:pomodoro.stopTimer"
+  ],
+  "main": "./out/extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "pomodoro.start",
+        "title": "Pomodoro: Start"
+      },
+      {
+        "command": "pomodoro.stop",
+        "title": "Pomodoro: Stop"
+      },
+      {
+        "command": "pomodoro.break",
+        "title": "Pomodoro: Break"
+      }
+    ]
+  },
+  "scripts": {
+    "vscode:prepublish": "npm run compile",
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./",
+    "postinstall": "node ./out/install.js"
+  },
+  "devDependencies": {
+    "@types/vscode": "^1.60.0",
+    "typescript": "^4.4.3",
+    "ts-loader": "^9.2.5"
+  }
+}
