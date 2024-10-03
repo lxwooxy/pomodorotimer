@@ -4,6 +4,8 @@ let interval: NodeJS.Timeout | undefined;
 let statusBarItem: vscode.StatusBarItem;
 let timeLeft: number; // Time in seconds
 let isWorkSession: boolean = true; // To track if it's a work session or break
+let workDuration: number;
+let breakDuration: number;
 
 export function activate(context: vscode.ExtensionContext) {
 
@@ -12,7 +14,9 @@ export function activate(context: vscode.ExtensionContext) {
         if (!interval) {
             const { workTime, breakTime } = await getPomodoroTimes();
             if (workTime && breakTime) {
-                startPomodoro(workTime, breakTime);
+                workDuration = workTime;
+                breakDuration = breakTime;
+                startPomodoro(workDuration, breakDuration);
             }
         } else {
             vscode.window.showInformationMessage('Pomodoro is already running.');
@@ -121,7 +125,7 @@ function startPomodoro(workTime: number, breakTime: number) {
                 startBreak(breakTime); // Automatically start the break timer after work
             } else {
                 vscode.window.showInformationMessage('Break complete! Time to get back to work.');
-                startPomodoro(workTime, breakTime); // Automatically restart the Pomodoro after the break
+                startPomodoro(workDuration, breakDuration); // Restart Pomodoro after the break
             }
         } else {
             updateStatusBar();
@@ -141,7 +145,7 @@ function startBreak(breakTime: number) {
             clearInterval(interval);
             interval = undefined;
             vscode.window.showInformationMessage('Break complete! Time to get back to work.');
-            // Optionally restart the Pomodoro session after the break
+            startPomodoro(workDuration, breakDuration); // Automatically restart the Pomodoro work session
         } else {
             updateStatusBar();
             timeLeft--;
