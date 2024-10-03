@@ -4,6 +4,10 @@
   "description": "A simple Pomodoro timer extension",
   "version": "0.0.1",
   "publisher": "lxwooxy",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/lxwooxy/pomodorotimer"
+  },
   "engines": {
     "vscode": "^1.60.0"
   },
