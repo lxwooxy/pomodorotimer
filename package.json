@@ -3,7 +3,7 @@
   "displayName": "Pomodoro Timer",
   "description": "A simple Pomodoro timer extension",
   "version": "0.0.1",
-  "publisher": "your-publisher-name",
+  "publisher": "lxwooxy",
   "engines": {
     "vscode": "^1.60.0"
   },
