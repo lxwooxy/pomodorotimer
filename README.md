@@ -1,71 +1,48 @@
-# pomodoro-timer README
+# Pomodoro Timer Extension
 
-This is the README for your extension "pomodoro-timer". After writing up a brief description, we recommend including the following sections.
+## Description
+
+The **Pomodoro Timer** extension helps you stay productive by managing your work and break sessions using the Pomodoro technique. It allows you to start a work timer, take scheduled breaks, and receive sound notifications when sessions start or end. Stay focused and take breaks effectively to boost your productivity!
 
 ## Features
 
-Describe specific features of your extension including screenshots of your extension in action. Image paths are relative to this README file.
+- **Start/Stop Pomodoro Timer**: Start a Pomodoro work session and automatically get notified when it's time for a break.
+- **Customizable Durations**: Set your preferred work and break intervals.
+- **Audio Notifications**: Play sound alerts when work sessions or breaks start (default sounds: "bloop" for work, "ding" for break).
+- **Status Bar Integration**: Shows the remaining time for the current work or break session in the status bar.
+- **Automatic Breaks**: After completing a Pomodoro, automatically begin a break.
 
-For example if there is an image subfolder under your extension project workspace:
+## Usage
 
-\!\[feature X\]\(images/feature-x.png\)
+1. Open the command palette (`Cmd + Shift + P` or `Ctrl + Shift + P`).
+2. Search for **Pomodoro: Start** to begin a Pomodoro session.
+3. Use **Pomodoro: Stop** to stop the current session.
+4. Use **Pomodoro: Break** to manually start a break.
 
-> Tip: Many popular extensions utilize animations. This is an excellent way to show off your extension! We recommend short, focused animations that are easy to follow.
+## Commands
+
+- **Pomodoro: Start**: Starts a Pomodoro work session.
+- **Pomodoro: Stop**: Stops the Pomodoro timer.
+- **Pomodoro: Break**: Starts a break immediately.
+
+## Configuration Options
+
+- You can set custom durations for work and break sessions via the prompts when starting a Pomodoro session.
 
 ## Requirements
 
-If you have any requirements or dependencies, add a section describing those and how to install and configure them.
+No additional requirements.
 
-## Extension Settings
+## Installation
 
-Include if your extension adds any VS Code settings through the `contributes.configuration` extension point.
+1. Open the **Extensions** view in Visual Studio Code (`Cmd + Shift + X` or `Ctrl + Shift + X`).
+2. Search for "Pomodoro Timer".
+3. Click **Install**.
 
-For example:
+## Contributing
 
-This extension contributes the following settings:
+Feel free to submit issues or pull requests to improve the functionality of this extension.
 
-* `myExtension.enable`: Enable/disable this extension.
-* `myExtension.thing`: Set to `blah` to do something.
+## License
 
-## Known Issues
-
-Calling out known issues can help limit users opening duplicate issues against your extension.
-
-## Release Notes
-
-Users appreciate release notes as you update your extension.
-
-### 1.0.0
-
-Initial release of ...
-
-### 1.0.1
-
-Fixed issue #.
-
-### 1.1.0
-
-Added features X, Y, and Z.
-
----
-
-## Following extension guidelines
-
-Ensure that you've read through the extensions guidelines and follow the best practices for creating your extension.
-
-* [Extension Guidelines](https://code.visualstudio.com/api/references/extension-guidelines)
-
-## Working with Markdown
-
-You can author your README using Visual Studio Code. Here are some useful editor keyboard shortcuts:
-
-* Split the editor (`Cmd+\` on macOS or `Ctrl+\` on Windows and Linux).
-* Toggle preview (`Shift+Cmd+V` on macOS or `Shift+Ctrl+V` on Windows and Linux).
-* Press `Ctrl+Space` (Windows, Linux, macOS) to see a list of Markdown snippets.
-
-## For more information
-
-* [Visual Studio Code's Markdown Support](http://code.visualstudio.com/docs/languages/markdown)
-* [Markdown Syntax Reference](https://help.github.com/articles/markdown-basics/)
-
-**Enjoy!**
+This extension is licensed under the [MIT License](LICENSE).
