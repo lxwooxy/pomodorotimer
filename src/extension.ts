@@ -121,11 +121,10 @@ function startPomodoro(workTime: number, breakTime: number) {
             interval = undefined;
 
             if (isWorkSession) {
-                vscode.window.showInformationMessage('Pomodoro complete! Time for a break.');
+                showTemporaryMessage('Pomodoro complete! Time for a break. 🍵', 10000);
                 startBreak(breakTime); // Automatically start the break timer after work
             } else {
-                vscode.window.showInformationMessage('Break complete! Time to get back to work.');
-                startPomodoro(workDuration, breakDuration); // Restart Pomodoro after the break
+                startPomodoro(workDuration, breakDuration); // Automatically restart the Pomodoro after the break
             }
         } else {
             updateStatusBar();
@@ -133,7 +132,7 @@ function startPomodoro(workTime: number, breakTime: number) {
         }
     }, 1000);
 
-    vscode.window.showInformationMessage('Pomodoro started!');
+    showTemporaryMessage('Pomodoro started! 💥', 10000);
 }
 
 function startBreak(breakTime: number) {
@@ -144,7 +143,6 @@ function startBreak(breakTime: number) {
         if (timeLeft <= 0) {
             clearInterval(interval);
             interval = undefined;
-            vscode.window.showInformationMessage('Break complete! Time to get back to work.');
             startPomodoro(workDuration, breakDuration); // Automatically restart the Pomodoro work session
         } else {
             updateStatusBar();
@@ -160,10 +158,18 @@ function stopPomodoro() {
         clearInterval(interval);
         interval = undefined;
         statusBarItem.text = 'Pomodoro: Stopped';
-        vscode.window.showInformationMessage('Pomodoro stopped.');
+        showTemporaryMessage('Pomodoro stopped.', 10000);
     } else {
-        vscode.window.showInformationMessage('No Pomodoro running.');
+        showTemporaryMessage('No Pomodoro running.', 10000);
     }
+}
+
+// Function to show a notification that disappears after a set time
+function showTemporaryMessage(message: string, duration: number) {
+    vscode.window.showInformationMessage(message);
+    setTimeout(() => {
+        vscode.window.showInformationMessage('');
+    }, duration);
 }
 
 function updateStatusBar() {
